@@ -1,14 +1,20 @@
 [
   {
-    "title": "Escuadra",
-    "price": 123.45,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-    "id": 1
+    "title": "Iphone 13 Pro Max",
+    "price": 1099.99,
+    "id": 1,
+    "thumbnail": "http://www.vicionet.com/Vel/373-large_default/apple-iphone-8-plus-64gb.jpg"
   },
   {
-    "title": "Escuadra",
-    "price": 123.45,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-    "id": 2
+    "title": "Iphone 11 Pro Max",
+    "price": 999.99,
+    "id": 2,
+    "thumbnail": "http://www.vicionet.com/Vel/373-large_default/apple-iphone-8-plus-64gb.jpg"
+  },
+  {
+    "title": "Iphone 8 Plus",
+    "price": 699.99,
+    "id": 3,
+    "thumbnail": "http://www.vicionet.com/Vel/373-large_default/apple-iphone-8-plus-64gb.jpg"
   }
 ]

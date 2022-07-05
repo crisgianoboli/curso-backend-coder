@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-class Contenedor {
-  constructor(file) {
-    this.file = file;
+export default class Contenedor {
+  constructor(ruta) {
+    this.ruta = ruta;
   }
 
   async saveData(item) {
@@ -16,18 +16,29 @@ class Contenedor {
     const newProduct = { ...item, id: newId };
     products.push(newProduct);
     try {
-      await fs.promises.writeFile(this.file, JSON.stringify(products, null, 2));
+      await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2));
       return newId;
     } catch (error) {
       return console.log(error);
     }
   }
 
-  getObjetctById() {}
+  async getObjetctById() {
+    try {
+      const items = await fs.promises.readFile(this.ruta, "utf-8");
+      const listItems = JSON.parse(items);
+      const idItem = listItems.filter((element, index) => {
+        return element.id === 1;
+      });
+      // console.log(idItem);
+    } catch (error) {
+      return [];
+    }
+  }
 
   async getAllObject() {
     try {
-      const items = await fs.promises.readFile(this.file, "utf-8");
+      const items = await fs.promises.readFile(this.ruta, "utf-8");
       return JSON.parse(items);
     } catch (error) {
       return [];
@@ -36,14 +47,25 @@ class Contenedor {
 
   deleteObjectById() {}
 
-  deleteAllObject() {}
+  async deleteAllObject() {
+    try {
+      const items = await fs.promises.readFile(this.ruta, "utf-8");
+      const listItems = JSON.parse(items);
+      const newList = listItems.splice(0, listItems.length);
+      console.log(newList);
+    } catch (error) {
+      return [];
+    }
+  }
 }
 
 const product = new Contenedor("product.txt");
 
-product.saveData({
-  title: "Escuadra",
-  price: 123.45,
+/* product.saveData({
+  title: "Iphone 8 Plus",
+  price: 699.99,
+  id: 3,
   thumbnail:
-    "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-});
+    "http://www.vicionet.com/Vel/373-large_default/apple-iphone-8-plus-64gb.jpg",
+}); */
+console.log(product.deleteAllObject());
